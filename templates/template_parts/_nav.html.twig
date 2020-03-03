@@ -1,9 +1,39 @@
-<nav class="navbar navbar-dark bg-primary">
+{% block nav %}
+
+<nav class="navbar navbar-dark bg-light">
+	<a class="navbar-brand" href="{{ path('main') }}"><img src="/assets/images/logo1.png" class="img-circle" alt="logo" width="100px;">
+		Rhuma-Sug</a>
 	<ul>
-		<li><a href="{{ path('main') }}">Accueil</a></li>
-        <li><a href="{{ path('about') }}">About</a></li>
-        <li><a href="{{ path('blog') }}">Blog</a></li>
-        <li><a href="{{ path('produits') }}">Produits</a></li>
-        <li><a href="{{ path('contact') }}">Contact</a></li>
+		<li>
+			<a href="{{ path('main') }}">Accueil</a>
+		</li>
+		<li>
+			<a href="{{ path('about') }}">About</a>
+		</li>
+     	<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Blog
+        </a>
+      	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<a class="dropdown-item" href="{{ path('blog') }}">My Articles</a>
+				{% if app.user %}
+					<a class="dropdown-item" href="{{ path('blog_create') }}">Create new article</a>
+				{% endif %}
+			</div>
+      	</li>
+		<li>
+			<a href="{{ path('produits') }}">Products</a>
+		</li>
+		<li>
+		{% if app.user %}
+			<a href="{{ path('app_logout') }}">Logout</a>
+		{% else %}
+         	<a href="{{ path('app_login') }}">Connect</a>
+      {% endif %}
+		</li>
+		<li>
+			<a href="{{ path('app_register') }}">Registration</a>
+		</li>
 	</ul>
 </nav>
+{% endblock %}

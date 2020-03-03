@@ -3,11 +3,12 @@
 body {
     font-size: 20px;
     line-height: 1.8;
-    color: #f5f6f7;
+    color: #000000;
 }
 
 p {
     font-size: 20px;
+    color: #000000;
     font-family: 'Montserrat';
 
 }
@@ -73,6 +74,7 @@ nav li a {
     font-family: 'Montserrat';
     text-decoration: none;
 }
+
 
 nav li a:hover {
     color: #156b5a !important;

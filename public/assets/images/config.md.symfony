@@ -1,0 +1,5 @@
+
+## Ne pas laisser app heroku 
+* j'ai désactivé sur interface heroku connexion BDD dans Settings 
+
+mysql://XN3I3SPWxR:mjdYutvwDd@remotemysql.com:3306/XN3I3SPWxR

@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+      {% if editMode %}
+            <h1>Modify Existing Article!</h1>
+      {% else %}
+         <h1>Create new Article!</h1>
+      {% endif %}
+   
+
+ {{ form_start(formArticle) }} 
+
+    {{ form_row(formArticle.title, {'attr': {'placeholder' : "Article Title"}}) }}
+    {{ form_row(formArticle.category) }}
+    {{ form_row(formArticle.content, {'attr': {'placeholder' : "Article Content"}}) }}
+    {{ form_row(formArticle.image, {'attr': {'placeholder' : "Pics URL"}}) }}
+
+    <button type="submit" class="btn btn-success">
+      {% if editMode %}
+            Modify Article
+      {% else %}
+         Save Article
+      {% endif %}
+    </button> 
+
+ {{ form_end(formArticle)}} 
+</div>
+{% endblock %}

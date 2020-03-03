@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Registration Form</h1>
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.username, {'attr': {'placeholder' : "Enter your Username"}}) }}
+        {{ form_row(registrationForm.email, {'attr': {'placeholder' : "Enter your Email"}}) }}
+        {{ form_row(registrationForm.Password, {'attr': {'placeholder' : "Enter your Password"}}) }}
+        {{ form_row(registrationForm.confirmPassword, {'attr': {'placeholder' : "Re enter your Password"}}) }}
+
+        <button class="btn btn-lg btn-primary" type="submit">Register</button>
+</div>
+    {{ form_end(registrationForm) }}
+{% endblock %}

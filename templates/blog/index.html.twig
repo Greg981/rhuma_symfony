@@ -1,19 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
-
+{% block title %}Hello Blog!{% endblock %}
 {% block body %}
-<div class="container-fluid bg-1">
-    <div class="col-md-6 col-md-offset-3">
-        <h3 class="margin">Blog</h3>
-        <?php
-            $articles = json_decode(file_get_contents(DATAS_PATH."/blog.json"));
+<div class="container">
+        <section class="articles">
 
-            foreach ($articles as $article):
-        ?>
-                <h1><?= $article->titre ?></h1>
-                <p><?= $article->texte ?></p>
-            <?php endforeach; ?>
-    </div>
+                {% for article in articles %}
+                
+                        <article>
+                                <h2>{{ article.title }}</h2>
+                                <br />
+                                <div class="metadata">Writted {{ article.createdAt | date('d/m/Y') }} at {{ article.createdAt | date('H:i')}} into category {{article.category.title}}</div>
+                                <div class="content">
+                                        <img src="{{ article.image }}" alt="joulie image">
+                                
+                                        {{ article.content | raw  }}
+                               
+                                        <a href="{{ path('blog_show', { 'id' : article.id }) }}" class="btn btn-primary">Continue reading</a>
+                                </div>
+                        </article>
+                        <br />
+                {% endfor %}
+
+        </section>
 </div>
 {% endblock %}
